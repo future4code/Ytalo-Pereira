@@ -1,0 +1,160 @@
+/* Portfolio */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+#menu {
+          position: fixed;
+          right: 0;
+          top: 50%;
+          width: 8em;
+          margin-top: -2.5em;
+          border: 12px;
+          background-color:rgb(27, 152, 202);
+          border-radius: 12px;
+          color: black
+        }
+
+#menu-letra{
+          color: #fff;
+}
+
+#fundo{
+       background: rgb(18, 138, 185);
+       display: grid;
+       height: 60vh;
+       grid-template-columns:  1fr;
+       grid-template-rows: 1fr ;
+       margin: 100px;
+       
+}
+
+.nav-elemntos {
+   display: flex;
+   height: 200px;
+   justify-content: space-evenly;
+
+}
+
+.divisao-div{
+  background-color:rgb(27, 152, 202);
+  border-radius: 50px;
+  margin: 50px;
+          padding: 12px;
+}
+
+#informacoes{
+          
+         
+          background-color: rgb(27, 152, 202);;
+          color:  rgb(221, 239, 247);
+          text-align: center !important;
+          padding: 50px;
+          font-size: x-large;
+          padding: 30px;
+          border-radius: 40px;
+          margin: 0;
+          min-height: 150px;
+          overflow: hidden;   
+          color: rgb(255, 255, 255);
+          font-size: xx-large;
+          padding: 50pxpx 0;   
+} 
+
+.informacoes2{
+          background-color:rgb(27, 152, 202); ;
+}
+
+.informacoes2:hover{
+          color: rgb(0, 1, 2);;
+}
+
+#foto{
+          text-align: center;
+          width:auto;
+          height: auto;
+          max-width: 300px;
+          max-height: 400px;
+          border-radius: 80px;         
+}
+
+#rede-socias{
+          text-align: center;
+          width: auto;
+          height: auto;
+          max-height: 49px;
+          max-width: 49px;
+          border-radius: 20px;
+          ;
+}
+
+.button{
+          background-color:rgb(44, 132, 167);;
+          color: #fff;
+          border-radius: 12px;
+          height: 60px;
+          border: none;
+          text-align: center;
+          width: 150px;
+          font-size: 18px;
+  
+}
+
+.button:active{
+      background-color: rgb(46, 88, 105);;
+}
+.button:hover{
+       background-color: rgb(8, 173, 238);;
+}
+
+.button-div{
+        justify-content: space-evenly;
+}
+
+/* Sobre */
+
+.informacoes-sobre{
+          
+         
+  background-color: rgb(27, 152, 202);;
+  color:  rgb(221, 239, 247);
+  text-align: center !important;
+  padding: 20px;
+  font-size: x-large;
+  padding: 30px;
+  border-radius: 40px;
+  margin: 10px;
+  overflow: hidden;   
+  color: rgb(255, 255, 255);
+  
+} 
+
+.informacoes-sobre{
+  background-color:rgb(22, 112, 148); ;
+}
+
+.informacoes-sobre:hover{
+  color: rgb(8, 173, 238);;
+}
+
+.fundo-sobre{
+  background: rgb(18, 138, 185);
+  display: grid;
+  height: 100vh;
+  grid-template-columns:  1fr 1fr;
+  grid-template-rows: 1fr ;
+  margin: 20px;
+}
+ .voltar-button{
+   display: block;
+   display: flex;
+   align-items: flex-end;
+ }
+
+      
+
+        
