@@ -14,7 +14,7 @@ const Post = (props) => {
   const [numeroCurtidas, setNumeroCurtidas] = useState(0)
   const [comentando, setComentando] = useState(false)
   const [numeroComentario, setNumeroComentario] = useState(0)
-  const [comentarioa, setComentarios] = useState([])
+  const [setComentarios, setComentarios] = useState([])
 
 
   const onClickCurtida = () => {
