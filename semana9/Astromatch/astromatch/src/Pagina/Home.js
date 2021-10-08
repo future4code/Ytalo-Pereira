@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import styled from "style-components";
+import styled from "styled-components";
 import axios from "axios";
 
 const Img = styled.img`
@@ -17,7 +17,7 @@ width: 500px;
 border: 1px soli black;
 `
 
-const Home = styled.div`
+const Homee = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,13 +38,16 @@ const URL ="https://us-central1-missao-newton.cloudfunctions.net/astroMatch/ytal
         alert(err.response)
     })
 }
-const body = {
-    id: perfil.id,
-    choice: choice
-}
+
 
 const cloosePessoa = (choice) => {
-   axios.post(`${URL}/choose-person`, body).then((res) => {
+    const body = {
+        id: perfil.id,
+        choice: choice
+    }
+
+   axios.post(`${URL}/choose-person`, body)
+   .then((res) => {
        console.log(res.data)
        getPerfil()
    }).catch((err) => {
@@ -57,7 +60,7 @@ useEffect(() => {
 },[])
 
     return (
-        <Home>
+        <Homee>
             {!perfil ? <h3>Acabaram os perfis! Aperte o botão de limpar</h3> :
             <Perfis>
             < Img  src={perfil.photo}/>
@@ -70,7 +73,7 @@ useEffect(() => {
             </div>
             </Perfis>
             }  
-        </Home>
+        </Homee>
     )
 }
 
