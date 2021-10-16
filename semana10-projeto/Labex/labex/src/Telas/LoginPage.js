@@ -17,20 +17,20 @@ export function LoginPage () {
         history.push("/admin/trips/list")
     };
     
-    const onChangeEmail = (ev) => {
+    const onEmail = (ev) => {
         setEmail(ev.target.value)
     };
 
-    const onChangeSenha = (ev) => {
+    const onSenha = (ev) => {
         setSenha(ev.target.value)
     };
 
-    const onSubmitLogin = () => {
+    const onLogin = () => {
         const body ={
             email: email,
 	        password: senha
         }
-        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/ytalo/login", body)
+        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/login", body)
         .then((res) => {
            console.log('Deu certo', res.data)        
         })
@@ -47,22 +47,21 @@ export function LoginPage () {
            <main>
                <input 
                placeholder="Email"
-               type="Email"
                value={email}
-               onChange={onChangeEmail}
+               onChange={onEmail}
                />
                <input 
                placeholder="Senha"
-               type="Senha"
+               type="password"
                value={senha}
-               onChange={onChangeSenha}
+               onChange={onSenha}
                />
            </main>
 
 
             <div>
             <button onClick={Enviar}>Voltar</button>
-            <button onClick={Entrar} onClick={onSubmitLogin}>Entrar</button>
+            <button onClick={Entrar} onClick={onLogin}>Entrar</button>
             </div>
 
         </div>
