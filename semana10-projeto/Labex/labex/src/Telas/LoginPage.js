@@ -8,6 +8,7 @@ export function LoginPage () {
 
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+   
 
     const Enviar = () => {
         history.push("/")
@@ -25,7 +26,10 @@ export function LoginPage () {
         setSenha(ev.target.value)
     };
 
-    const onLogin = () => {
+    const onLogin = (ev) => {
+        
+        ev.preventDeFault()
+
         const body ={
             email: email,
 	        password: senha
@@ -39,30 +43,34 @@ export function LoginPage () {
 
         })
     };
+    
+    
 
     return (
         <div>
             <h1>LoginPage</h1>
            
-           <main>
-               <input 
+           <form onSubmit={onLogin}>
+               <input
+               required
                placeholder="Email"
                value={email}
                onChange={onEmail}
+               type="email"
                />
                <input 
+               required
                placeholder="Senha"
                type="password"
                value={senha}
                onChange={onSenha}
+               pattern={"^.{3,}"}
+               title={"Sua senha deve ter no mínimo 3 caracteres"}
                />
-           </main>
-
-
-            <div>
-            <button onClick={Enviar}>Voltar</button>
-            <button onClick={Entrar} onClick={onLogin}>Entrar</button>
-            </div>
+               <button >Voltar</button>
+               <button >Entrar</button>
+            </form>
+            
 
         </div>
     )
