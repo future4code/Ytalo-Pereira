@@ -1,4 +1,4 @@
-export type User = {
+export type User ={
     id:string
     name:string
     email:string
@@ -8,6 +8,14 @@ export type User = {
 export type Product = {
     id: string,
     name: string,
-    price: Number,
+    price: number,
     image_url: string
+}
+
+export type Purchase = {
+    id: string,
+    product_id: string,
+    user_id: string,
+    quantity: number,
+    total_price: number
 }
