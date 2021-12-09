@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import connection from "../connection"
+import { testDatabase } from "..";
 import { CharacterDatabase } from "../data/CharacterDatabase";
 import { Character, character } from "../types"
 
@@ -10,6 +10,8 @@ export default async function getAllCharacters(
 
    try {
       const cdb = new CharacterDatabase();
+
+      testDatabase(cdb)
       const characters: Character[] = await cdb.getAll();
 
       res.send(characters)

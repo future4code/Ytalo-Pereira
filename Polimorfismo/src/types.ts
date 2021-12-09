@@ -4,7 +4,7 @@ export enum GENDER {
    OTHER = "OTHER"
 }
 
-export type character = {
+export interface character {
    name: string,
    gender: GENDER,
    id?: number,
@@ -12,23 +12,14 @@ export type character = {
 }
 
 
-export class Character {
-
-   private name: string;
-   private gender: GENDER;
-   private id?: number;
-   private description?: string;
+export class Character implements character {
 
    constructor(
-      name: string,
-      gender: GENDER,
-      id?: number,
-      description?: string
+      public name: string,
+      public gender: GENDER,
+      public id?: number,
+      public description?: string
    ) {
-      this.name = name;
-      this.gender = gender;
-      this.id = id;
-      this.description = description;
       console.log("Consegui criar "+this.name+" com sucesso!");
    }
 
@@ -75,6 +66,8 @@ export class Animal{
 }
 
 export class Dog extends Animal {
+
+   public static nomeCientifico: string = "cannis familiaris"
    
    bark(): void {
       console.log("Au au ")

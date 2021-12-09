@@ -1,27 +1,12 @@
-import knex, { Knex } from "knex";
 import { Character } from "../types";
+import { BaseDatabase } from "./BaseDatabase";
 
-export class CharacterDatabase {
+export class CharacterDatabase extends BaseDatabase {
 
-    constructor(){
-
-    }
-
-    private connection: Knex = knex({
-        client: "mysql",
-        connection: {
-           host: process.env.DB_HOST,
-           user: process.env.DB_USER,
-           password: process.env.DB_PASSWORD,
-           database: process.env.DB_SCHEMA,
-           port: 3306,
-           multipleStatements: true
-        }
-     })
-
+   
    async create(character: Character){
 
-        await this.connection("character")
+        await BaseDatabase.connection("character")
          .insert({
              name:character.getName(),
              gender: character.getGender(),
@@ -29,7 +14,7 @@ export class CharacterDatabase {
     }
 
     async getAll(): Promise<Character[]>{
-        const characters = await this.connection("character").select();
+        const characters = await BaseDatabase.connection("character").select();
         const charactersClass: Character[] = []; 
         for(let ch of characters){
             const c = new Character(ch.name, ch.gender, ch.id, ch.description);

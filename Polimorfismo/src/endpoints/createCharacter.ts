@@ -1,5 +1,4 @@
 import { Request, Response } from "express"
-import connection from "../connection"
 import { CharacterDatabase } from "../data/CharacterDatabase"
 import { Character } from "../types";
 
