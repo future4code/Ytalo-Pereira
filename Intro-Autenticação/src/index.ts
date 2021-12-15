@@ -1,19 +1,12 @@
-import app from "./app";
-import editUser from './endpoints/editUser';
-import createUser from './endpoints/createUser';
-import login from "./endpoints/login";
-// import { Authenticator } from "./services/Authenticator";
+import app from "./app"
+import editUser from './endpoints/editUser'
+import createUser from './endpoints/createUser'
+import login from "./endpoints/login"
+
 
 app.post('/users/signup', createUser)
-app.put('/users/:id', editUser)
-app.post('/users/login', login)
+app.post('/user/login',login)
+app.put('/users', editUser)
 
-// const pessoa = {
-//     id: "uhsdhaushduhd637467"
-// }
 
-// const jwt = new Authenticator().generateToken(pessoa)
 
-// const verify = new Authenticator().getTokenData(jwt)
-
-// console.log(verify)

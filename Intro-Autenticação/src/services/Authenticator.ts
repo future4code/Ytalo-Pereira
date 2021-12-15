@@ -1,31 +1,38 @@
+import { JwtPayload, sign, verify } from "jsonwebtoken"
 import { authenticationData } from "../types";
-import dotenv from "dotenv"
-import { JwtPayload, sign, verify } from "jsonwebtoken";
+import dotenv from 'dotenv'
+
 dotenv.config()
 
 export class Authenticator {
 
-
-    generateToken = (payload: authenticationData) => {
+    generateToken = (
+        payload: authenticationData
+    ) => {
         const token = sign(
-            { payload },
+            payload,
             process.env.JWT_SECRET
-           
         )
 
-        return token
+        return token;
     }
+
 
     getTokenData = (token: string) => {
         try {
-            const tokenDate = verify(
+            const tokenData = verify(
                 token,
                 process.env.JWT_SECRET
             ) as JwtPayload
 
+            return {
+                id:tokenData.id
+            }
         } catch (error) {
             console.log(error)
-            
+            return null
         }
     }
+
 }
+
