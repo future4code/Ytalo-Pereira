@@ -4,7 +4,7 @@
     "main": "index.js",
     "scripts": {
         "start": "tsc && node --inspect ./build/index.js",
-        "dev-start": "ts-node-dev --transpile-only --ignore-watch node_modules .src/index.ts",
+        "dev-start": "ts-node-dev --transpile-only --ignore-watch node_modules ./src/index.ts",
         "migrations": "ts-node-dev ./src/data/migrations.ts"
     },
     "author": "Labenu",

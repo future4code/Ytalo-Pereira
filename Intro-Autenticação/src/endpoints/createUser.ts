@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import {connection} from "../data/connection";
+import { Authenticator } from "../services/Authenticator";
 import { IdGenerated } from "../services/IdGenerated";
 import { user } from "../types";
 
@@ -9,11 +10,11 @@ export default async function createUser(
 ): Promise<void> {
    try {
 
-      const { name, nickname, email } = req.body
+      const { name, nickname, email, password } = req.body
 
-      if (!name || !nickname || !email ) {
+      if (!name || !nickname || !email || password ) {
          res.statusCode = 422
-         throw new Error("Preencha os campos 'name', 'nickname' e 'email'")
+         throw new Error("Preencha os campos 'name', 'nickname' , 'email' e 'password")
       }
 
       const [user] = await connection('to_do_list_users')
@@ -26,12 +27,14 @@ export default async function createUser(
 
       const id: string = new IdGenerated().generatedId()
 
-      const newUser: user = { id, name, nickname, email }
+      const newUser: user = { id, name, nickname, email, password}
 
       await connection('to_do_list_users')
          .insert(newUser)
 
-      res.status(201).send({ newUser })
+      const token = new Authenticator().generateToken({id})
+
+      res.status(201).send({ newUser, token })
 
    } catch (error) {
 
