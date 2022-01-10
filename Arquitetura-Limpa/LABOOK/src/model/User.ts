@@ -1,12 +1,13 @@
-export interface authenticationData {
-     id: string
+export type authenticationData = {
+  id: string
 }
 
-export interface userCredentials {
-    email: string,
-    password: string
+export type userCredentials ={
+  email: string
+  password: string
 }
 
 export interface user extends authenticationData, userCredentials{
-    name: string
+  name:string
 }
+

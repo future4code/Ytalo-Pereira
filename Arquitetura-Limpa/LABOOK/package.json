@@ -6,7 +6,6 @@
   "scripts": {
     "test": "tsc && node build/teste",
     "start": "tsc && node build/index"
-
   },
   "keywords": [],
   "author": "",
@@ -16,6 +15,7 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "firebase-admin": "^10.0.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.15",
     "mysql": "^2.18.1",

@@ -1,12 +1,14 @@
-import { PostRepository } from "../business/PostRepositori"
+import { PostRepository } from "../business/PostRepository"
 import { Post } from "../model/Post"
-import { BaseDataBase } from "./BaseDataBase"
+import { BaseDatabase } from "./BaseDatabase"
 
-export class PostDataBase extends BaseDataBase implements PostRepository {
-    getPostById = async (id: string): Promise<Post | undefined> => {
+export class PostDatabase extends BaseDatabase implements PostRepository{
+  getPostById = async (
+    id: string
+  ): Promise<Post | undefined> => {
 
-        const result = await this.connection("labook_posts").where({ id })
+    const result = await this.connection("labook_posts").where({ id })
 
-        return result[0]
-    }
+    return result[0]
+  }
 }

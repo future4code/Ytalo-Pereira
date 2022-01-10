@@ -5,31 +5,31 @@ import { authenticationData } from "../model/User"
 config()
 
 export class Authenticator {
-    generateToken = (
-        payload: authenticationData
-    ) => {
+  
+  generateToken = (
+    payload: authenticationData
+  ) => {
+    return sign(
+      payload,
+      process.env.JWT_KEY as string,
+      {
+        expiresIn: "12h"
+      }
+    )
+  }
 
-        return sign(
-            payload,
-            process.env.JWT_KEY as string,
-            {
-                expiresIn: "12h"
-            }
-        )
+  getTokenData = (token: string): authenticationData | null => {
+    try {
+      const tokenData = verify(
+        token,
+        process.env.JWT_KEY!
+      ) as JwtPayload
+
+      return {
+        id: tokenData.id
+      }
+    } catch (error) {
+      return null
     }
-
-    getTokenData = (token: string): authenticationData | null => { 
-        try{
-            const tokenData = verify(
-                token,
-                process.env.JWT_KEY!
-            ) as JwtPayload
-
-            return {
-                id: tokenData.id
-            }
-        } catch (error){
-            return null
-        }
-    }
+  }
 }

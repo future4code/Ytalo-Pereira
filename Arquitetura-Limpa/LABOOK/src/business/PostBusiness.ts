@@ -1,25 +1,22 @@
-// import { PostDataBase } from "../data/PostDataBase";
+//import { PostDatabase } from "../data/PostDatabase";
 import { Post } from "../model/Post";
-import { PostRepository } from "./PostRepositori";
+import { PostRepository } from "./PostRepository";
 
+export class PostBusiness {
+  private postData: PostRepository
 
-export class PostBussiness {
+  constructor(
+    postRepository: PostRepository
+  ){
+    this.postData = postRepository;
+  }
 
+  getPostById = async (
+    id: string
+  ): Promise<Post | undefined> => {
 
-    private postData: PostRepository
+    const post = this.postData.getPostById(id)
 
-    constructor(
-        postRepository: PostRepository
-    ){
-        this.postData = postRepository
-    }
-
-    getPostById = async (
-        id: string
-    ): Promise<Post | undefined> => {
-        
-        const post = this.postData.getPostById(id)
-
-        return post
-    }
+    return post
+  }
 }
