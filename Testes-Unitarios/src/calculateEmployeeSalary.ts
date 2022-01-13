@@ -4,7 +4,7 @@ import {
 } from "./validateEmptyProperties";
 
 
-interface CalculateEmployeeSalaryInput {
+export interface CalculateEmployeeSalaryInput {
   employeeName: string;
   baseSalary: number;
   benefits: number[];
